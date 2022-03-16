@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://net.luminis/temperature" xmlns:tns="http://net.luminis/temperature">
+
+    <xs:element name="reading" type="tns:reading"/>
+
+    <xs:complexType name="reading">
+        <xs:sequence>
+            <xs:element name="sensor-id" type="xs:string"/>
+            <xs:element name="timestamp" type="xs:dateTime"/>
+            <xs:element name="temperature" type="tns:temperature"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="temperature">
+        <xs:restriction base="xs:float">
+            <xs:minInclusive value="0"/>
+            <xs:maxExclusive value="51"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+
+<!--
+
+<reading xmlns="http://net.luminis/temperature">
+    <sensor-id>a</sensor-id>
+    <timestamp>2022-03-04T10:24:00</timestamp>
+    <temperature>50</temperature>
+</reading>
+
+-->

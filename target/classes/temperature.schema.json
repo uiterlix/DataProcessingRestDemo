@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://net.luminis/temperature",
+  "title": "Temperature",
+  "description": "Temperature sensor reading",
+  "type": "object",
+  "properties": {
+    "sensor-id": {
+      "description": "The id of the sensor",
+      "type": "string"
+    },
+    "timestamp": {
+      "description": "The timestamp of the temperature reading",
+      "type": "string",
+      "format": "datetime"
+    },
+    "temperature" : {
+      "description": "The temperature in degrees celcius",
+      "type": "number",
+      "minimum": 0,
+      "maximum" : 50
+    }
+  },
+  "required": [ "sensor-id", "timestamp", "temperature" ]
+}
